@@ -29,15 +29,23 @@ public:
 
     //// STUDENT CODE
     ////
-
+    // implement the rule of five which means, copy constructor, copy assignment operator, destructor, 
+    // 1) Copy contructor
+    ChatBot(const ChatBot &source);
+    // 2) Copy assigment operator
+    ChatBot& operator =(const ChatBot &source);
+    // 3) move constructor
+    ChatBot(ChatBot &&source);
+    // 4) move assignment 
+    ChatBot &operator= (ChatBot &&source);
     ////
     //// EOF STUDENT CODE
 
     // getters / setters
     void SetCurrentNode(GraphNode *node);
     void SetRootNode(GraphNode *rootNode) { _rootNode = rootNode; }
-    void SetChatLogicHandle(ChatLogic *chatLogic) { _chatLogic = chatLogic; }
-    ChatLogic* GetChatLogicHandle() { return _chatLogic; }
+    void SetChatLogicHandle(ChatLogic *chatLogic) { _chatLogic = chatLogic; } // dont need to change it as the raw pointer is getting assigned to it.
+    ChatLogic* GetChatLogicHandle() { return _chatLogic; } // sends out raw pointer 
     wxBitmap *GetImageHandle() { return _image; }
 
     // communication

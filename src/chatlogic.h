@@ -17,8 +17,10 @@ private:
     ////
 
     // data handles (owned)
-    std::vector<GraphNode *> _nodes;
-    std::vector<GraphEdge *> _edges;
+    //  the graph nodes are getting called in the checking function and hence need to create shared pointer
+    std::vector<std::shared_ptr<GraphNode>> _nodes;
+   
+    std::vector<GraphEdge *> _edges;  // data handle not owned 
 
     ////
     //// EOF STUDENT CODE
@@ -26,6 +28,7 @@ private:
     // data handles (not owned)
     GraphNode *_currentNode;
     ChatBot *_chatBot;
+    // std::shared_ptr<ChatBot> _chatBot;
     ChatBotPanelDialog *_panelDialog;
 
     // proprietary type definitions

@@ -17,8 +17,7 @@ private:
     ////
 
     // data handles (owned)
-    //  the graph nodes are getting called in the checking function and hence need to create shared pointer
-    std::vector<std::shared_ptr<GraphNode>> _nodes;
+    std::vector<std::unique_ptr<GraphNode>> _nodes;
    
     std::vector<GraphEdge *> _edges;  // data handle not owned 
 
